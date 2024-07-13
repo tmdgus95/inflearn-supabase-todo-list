@@ -36,11 +36,16 @@ export default function UI() {
         icon={<i className="fas fa-search" />}
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
+        {...({} as any)}
       />
 
       {todosQuery.isPending && <p>Loading...</p>}
       {todosQuery.data && todosQuery.data.map((todo) => <Todo key={todo.id} todo={todo} />)}
-      <Button onClick={() => createTodoMutation.mutate()} loading={createTodoMutation.isPending}>
+      <Button
+        onClick={() => createTodoMutation.mutate()}
+        loading={createTodoMutation.isPending}
+        {...({} as any)}
+      >
         <i className="fas fa-plus mr-2" />
         ADD TODO
       </Button>
